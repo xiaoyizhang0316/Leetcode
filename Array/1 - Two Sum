@@ -1,0 +1,23 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int a,b;
+        int result[] = new int[2];
+        int flag = 0;
+        for (a = 0;a < nums.length;a++)
+        {
+            for (b = a;b < nums.length;b++)
+            {
+                if ((nums[a] + nums[b] == target) && (a != b) )
+                {
+                    result[0] = a;
+                    result[1] = b;
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 1)
+            break;
+        }
+        return result;
+    }
+}

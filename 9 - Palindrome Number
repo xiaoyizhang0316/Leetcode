@@ -1,0 +1,15 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        int a = Integer.toString(Math.abs(x)).length();
+        double result = 0;
+        int temp = x;
+        while (a > 0 )
+        {
+            result = result + (int) Math.pow(10,--a)*(x%10);
+            x = (int) x/10;
+        }
+        if (Math.abs((int) result) == Math.abs(temp) && temp >= 0)
+        return true;
+        return false;
+    }
+}

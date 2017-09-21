@@ -1,0 +1,20 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int[] result = new int[digits.length + 1];
+        int[] result1 = new int[digits.length];
+        int carry = 1;
+        for (int a = digits.length - 1; a >= 0; a--)
+        {
+            result[a] = (digits[a] + carry)%10;
+            carry = (carry + digits[a])/ 10;
+        }
+        if (carry == 1)
+        {
+        result[0] = result[0] + carry;
+        return result;
+        }
+        else
+        System.arraycopy(result,0, result1, 0, digits.length );
+        return result1;
+    }
+}

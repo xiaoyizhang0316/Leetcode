@@ -1,2 +1,3 @@
 # Leetcode
-Change
+
+Code of Leetcode problems

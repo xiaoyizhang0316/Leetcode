@@ -1,0 +1,28 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        String temp = "";
+        String finalTemp = "";
+        int flag = 0;
+        if (strs.length == 0 || strs[0].length() == 0)
+        return "";
+        if (strs.length == 1)
+        return strs[0];
+        for (int c = 0; c < strs[0].length(); c++)
+        {   
+            temp = temp + strs[0].charAt(c);
+            for (int a = 1; a < strs.length; a++)
+            {
+                if (!((strs[a].contains(temp) == true) && (strs[a].indexOf(strs[0].charAt(c),c) == c)))
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0)
+            finalTemp = temp;
+            else
+            break;
+        }        
+        return finalTemp;
+    }
+}

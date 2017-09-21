@@ -1,0 +1,20 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> t = new ArrayList<List<Integer>>();
+        int b = 0;
+        while(b < numRows)
+        {
+            List<Integer> row = new ArrayList<Integer>();
+            for (int a = 0; a < b + 1; a++)
+            {
+                if (a == 0 || a == b)
+                row.add(1);
+                else
+                row.add(t.get(b-1).get(a-1) + t.get(b-1).get(a));
+            }
+            t.add(row);
+            b++;
+        }
+        return t;
+    }
+}

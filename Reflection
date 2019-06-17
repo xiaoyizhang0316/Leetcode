@@ -1,0 +1,5 @@
+1. Switch between 0 and 1: x = (3 + x) % 2;
+
+2. Remove the last digit of a byte: x = x / 2;
+
+3. Find the unique element: Using hash set.

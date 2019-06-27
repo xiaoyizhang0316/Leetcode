@@ -5,3 +5,9 @@
 3. Find the unique element: Using hash set.
 
 4. Graph   DFS: Using stack.   BFS: Using Queue.  Topological sort: Using stack.
+
+Minimun Spanning Tree: Prim: Using Priority Queue, focus on vertex.  O(E log V)
+
+Kruskal: Using disjoint set, focus on edge. O(E log E)  Both of them, Greedy algorithm.
+
+

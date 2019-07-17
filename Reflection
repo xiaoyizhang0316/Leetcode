@@ -10,4 +10,4 @@ Minimun Spanning Tree: Prim: Using Priority Queue, focus on vertex.  O(E log V)
 
 Kruskal: Using disjoint set, focus on edge. O(E log E)  Both of them, Greedy algorithm.
 
-
+<< : Left shift     >> : Right shift

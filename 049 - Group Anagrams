@@ -1,0 +1,52 @@
+Given an array of strings, group anagrams together.
+
+Example:
+
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+
+
+
+----------------Solution------------------
+
+public class Solution {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
+        IList<IList<string>> result = new List<IList<string>>();
+        
+        Dictionary<string, List<string>> temp = new Dictionary<string, List<string>>();
+
+        foreach (string s in strs)
+        {
+            char[] tempS = s.ToCharArray();
+            Array.Sort(tempS);
+            string str1 = new string(tempS);
+            
+            if (temp.ContainsKey(str1))
+            {
+                temp[str1].Add(s);
+            }
+            else
+            {
+                List<string> tempStr = new List<string>();
+                tempStr.Add(s);
+                temp.Add(str1, tempStr);
+            }
+        }
+        foreach (var a in temp)
+        {
+            List<string> tempStr2 = new List<string>();
+            foreach (string s in a.Value)
+            {
+                tempStr2.Add(s);
+            }
+            result.Add(tempStr2);
+        }
+        return result;
+    }
+
+}

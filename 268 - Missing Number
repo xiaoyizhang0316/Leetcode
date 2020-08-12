@@ -1,0 +1,37 @@
+Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+
+Example 1:
+
+Input: [3,0,1]
+Output: 2
+Example 2:
+
+Input: [9,6,4,2,3,5,7,0,1]
+Output: 8
+
+--------------------Solution-----------------
+
+public class Solution {
+    public int MissingNumber(int[] nums) {
+        int max = 0;
+        int arraySum = 0;
+        bool isZero = true;
+        foreach (int i in nums)
+        {
+            if (i > max)
+            {
+                max = i;
+            }
+            if (i == 0)
+            {
+                isZero = false;
+            }
+            arraySum += i;
+        }
+        if (isZero)
+            return 0;
+        if ( max * (max + 1) / 2 == arraySum)
+            return max + 1;
+        return max * (max + 1) / 2 - arraySum;
+    }
+}

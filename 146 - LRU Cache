@@ -1,0 +1,68 @@
+Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
+
+get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
+
+The cache is initialized with a positive capacity.
+
+Follow up:
+Could you do both operations in O(1) time complexity?
+
+-----------------Solution-------------------
+public class LRUCache {
+
+    public Dictionary<int, int> dataList;
+
+    public List<int> keyList;
+
+    public int cap;
+
+    public LRUCache(int capacity)
+    {
+        dataList = new Dictionary<int, int>();
+        keyList = new List<int>();
+        cap = capacity;
+    }
+
+    public int Get(int key)
+    {
+        if (dataList.ContainsKey(key))
+        {
+            keyList.Remove(key);
+            keyList.Add(key);
+            return dataList[key];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public void Put(int key, int value)
+    {
+        if (dataList.ContainsKey(key))
+        {
+            dataList[key] = value;
+            keyList.Remove(key);
+            keyList.Add(key);
+            return;
+        }
+        if (dataList.Count < cap)
+        {
+            dataList.Add(key, value);
+            keyList.Add(key);
+            return;
+        }
+        dataList.Remove(keyList[0]);
+        keyList.RemoveAt(0);
+        dataList.Add(key, value);
+        keyList.Add(key);
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.Get(key);
+ * obj.Put(key,value);
+ */
